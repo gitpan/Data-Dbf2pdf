@@ -1,0 +1,60 @@
+ Dbf2pdf 0.7  10-16-2001
+ 
+ DESCRIPTION
+ -----------
+
+ The Dbf2pdf module is used to create a PDF document from the contents of
+ a DBF file.  It uses several options to create the PDF document to the 
+ user's specifications such as font, paper size, page orientation, etc.    
+
+ PREREQUISITES
+ -------------
+  
+ Before installation you will need a few things.  This module uses a wrapper 
+ along with Text::PDF::API.  The PDF module can be acquired at CPAN.  The 
+ XBase module is used to acquire the DBF info to hand to the PDF module.  
+ It can also be found at CPAN.  It is highly recommended that you use the 
+ most recent versions of the modules below.    
+   
+ Current versions:
+
+   Text-PDF-API-0.701.4  http://search.cpan.org/search?dist=Text-PDF-API
+   DBD-XBase-0.200       http://search.cpan.org/search?dist=DBD-XBase  
+   
+ INSTALL
+ ------- 
+ 
+ Standard perl module installation.  Before you do a "make Makefile.PL", you 
+ may want to specify what directory in which the module does some of it's work 
+ (See below).  It will default to the system's "/tmp" directory otherwise. 
+ A simple build: 
+
+ 	perl Makefile.PL
+        make  
+        make install
+ 
+ Then a 'make realclean' is recommended to clean up.
+  
+ To specify a different directory than "/tmp" in which the module does
+ some work when called:
+
+        perl Makefile.PL --TEMP_DIR=/somedir 
+ 
+ TODO
+ ----
+ 
+ Some things to expect in a future release:
+
+   1. Font type can be selected instead of being static (Courier).
+      - Courier is fixed width font which is much easier to handle when the 
+        size changes and lines are being drawn and so forth.   
+  
+   2. On the last page stop drawing lines when the data stops.  Currently
+      all lines are drawn on each page. 
+   
+ COPYRIGHT
+ ---------
+
+ Copyright (c) 2001 Andy Orr. All rights reserved. This program is free 
+ software; you can redistribute it and/or modify it under the same terms 
+ as Perl itself. 
